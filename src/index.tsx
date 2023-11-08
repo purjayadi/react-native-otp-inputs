@@ -1,4 +1,4 @@
-import Clipboard from '@react-native-clipboard/clipboard';
+import * as Clipboard from 'expo-clipboard';
 import React, {
   forwardRef,
   RefObject,
@@ -202,7 +202,7 @@ const OtpInputs = forwardRef<OtpInputsRef, Props>(
     );
 
     const listenOnCopiedText = useCallback(async (): Promise<void> => {
-      const copiedText = await Clipboard.getString();
+      const copiedText = await Clipboard.getStringAsync();
       const otpCodeValue = Object.values(otpCode).join('');
 
       if (
